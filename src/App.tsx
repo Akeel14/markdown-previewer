@@ -22,12 +22,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 function App() {
-  const [markdown, setMarkdown] = useState(`# Hello World`);
   const [showGuide, setShowGuide] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMarkdown(e.target.value);
-  };
 
   return (
     <>
@@ -35,8 +30,8 @@ function App() {
       <Header onToggleGuide={() => setShowGuide(!showGuide)} />
       {showGuide && <MarkdownGuide />}
       <Container>
-        <MarkdownInput value={markdown} onChange={handleChange} />
-        <MarkdownOutput markdown={markdown} />
+        <MarkdownInput />
+        <MarkdownOutput />
       </Container>
     </>
   );
