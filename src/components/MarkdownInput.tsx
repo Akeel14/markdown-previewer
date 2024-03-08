@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useMarkdownStore } from "../store/useMarkdownStore";
 
 const InputContainer = styled.div`
   width: 50%;
@@ -18,15 +19,15 @@ const StyledTextArea = styled.textarea`
   outline: none;
 `;
 
-interface MarkdownInputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-}
+const MarkdownInput = () => {
+  const { markdown, setMarkdown } = useMarkdownStore();
 
-const MarkdownInput: React.FC<MarkdownInputProps> = ({ value, onChange }) => {
   return (
     <InputContainer>
-      <StyledTextArea onChange={onChange} value={value} />
+      <StyledTextArea
+        onChange={(e: any) => setMarkdown(e.target.value)}
+        value={markdown}
+      />
     </InputContainer>
   );
 };

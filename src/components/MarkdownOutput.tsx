@@ -1,5 +1,6 @@
-import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
+import ReactMarkdownRender from "./ReactMarkdownRender";
+import { useMarkdownStore } from "../store/useMarkdownStore";
 
 const OutputContainer = styled.div`
   width: 50%;
@@ -11,14 +12,10 @@ const OutputContainer = styled.div`
   background-color: #f9f9f9;
 `;
 
-interface MarkdownOutputProps {
-  markdown: string;
-}
-
-const MarkdownOutput: React.FC<MarkdownOutputProps> = ({ markdown }) => {
+const MarkdownOutput = () => {
   return (
     <OutputContainer>
-      <ReactMarkdown>{markdown}</ReactMarkdown>
+      <ReactMarkdownRender />
     </OutputContainer>
   );
 };
